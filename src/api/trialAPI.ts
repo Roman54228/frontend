@@ -15,7 +15,8 @@ export const handleStartTrial = async () => {
       const result = await response.json();
       
       if (result.success) {
-        alert('Trial started!');
+        // Перенаправляем на дашборд вместо alert
+        window.location.href = '/dashboard';
       } else {
         alert('Error: ' + result.message);
       }
