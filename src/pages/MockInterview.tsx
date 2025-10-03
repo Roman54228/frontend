@@ -1,8 +1,6 @@
 import { Button } from '@/components/ui/button';
 import {
     CheckCircle,
-    Clock,
-    MessageSquare,
     Mic,
     MicOff,
     PlayCircle,
@@ -43,40 +41,12 @@ export function MockInterview() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-          <Button variant="ghost" className="mr-2" onClick={() => window.location.href = '/'}>
-            ← Главная
-          </Button>
-          <Button variant="ghost" className="mr-4" onClick={() => window.location.href = '/dashboard'}>
-            ← Back to Dashboard
-          </Button>
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">Mock Interview</h1>
-              <p className="text-gray-600">AI-powered interview practice session</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="text-sm text-gray-600">
-              <Clock className="h-4 w-4 inline mr-1" />
-              Question {currentQuestion + 1} of {interviewQuestions.length}
-            </div>
-            <Button className="bg-red-600 hover:bg-red-700">
-              <MessageSquare className="h-4 w-4 mr-2" />
-              End Session
-            </Button>
-          </div>
-        </div>
-      </header>
-
       <div className="mx-auto max-w-4xl px-6 py-8">
         {/* Interview Session */}
         <div className="bg-white rounded-lg border border-gray-200 p-8 shadow-sm mb-8">
           <div className="text-center mb-8">
             <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <User className="h<｜tool▁sep｜>8 w-8 text-orange-600" />
+              <User className="h-8 w-8 text-orange-600" />
             </div>
             <h2 className="text-xl font-semibold text-gray-900 mb-2">Virtual Interviewer</h2>
             <div className="flex items-center justify-center gap-2 text-sm text-gray-600">

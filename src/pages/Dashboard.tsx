@@ -118,32 +118,6 @@ export function Dashboard() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-            <p className="text-gray-600">Welcome back! Here's your progress summary.</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button 
-              variant="outline" 
-              className="border-gray-300 mr-2"
-              onClick={() => window.location.href = '/'}
-            >
-              ← Главная
-            </Button>
-            <Button variant="outline" className="border-gray-300">
-              <User className="h-4 w-4 mr-2" />
-              Profile
-            </Button>
-            <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700">
-              Start Free Trial
-            </Button>
-          </div>
-        </div>
-      </header>
-
       <div className="mx-auto max-w-7xl px-6 py-8">
         {/* Stats Grid */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-8">

@@ -1,70 +1,12 @@
 import { BackgroundGradientAnimation } from '@/components/ui/background-gradient-animation';
 import { Button } from '@/components/ui/button';
 import {
-    NavigationMenu,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
-} from '@/components/ui/navigation-menu';
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from '@/components/ui/popover';
-import {
-    Sidebar,
-    SidebarContent,
-    SidebarFooter,
-    SidebarGroup,
-    SidebarGroupContent,
-    SidebarGroupLabel,
-    SidebarInset,
-    SidebarMenu,
-    SidebarMenuButton,
-    SidebarMenuItem,
-    SidebarProvider,
-    SidebarTrigger,
-} from '@/components/ui/sidebar';
-import {
-    Briefcase,
-    Calculator,
-    Check,
-    FileText,
-    HelpCircle,
-    MessageSquare,
-    Monitor,
-    User,
-    Wand2
+    Check
 } from 'lucide-react';
 
 import { handleStartTrial } from '@/api/trialAPI';
 
 export function HomePage() {
-  const navItems = [
-    {
-      title: "Interview",
-      items: [
-        { title: "Interview Copilot", icon: Monitor, href: "/dashboard" },
-        { title: "Mock Interview", icon: MessageSquare, href: "/mock-interview" },
-      ]
-    },
-    {
-      title: "Tools",
-      items: [
-        { title: "AI Resume Builder", icon: FileText, href: "/dashboard" },
-        { title: "AI Material Generator", icon: Wand2, href: "/dashboard" },
-        { title: "AI Job Hunter", icon: Briefcase, href: "/dashboard" },
-        { title: "AI Salary Calculator", icon: Calculator, href: "/dashboard" },
-      ]
-    },
-    {
-      title: "Resources",
-      items: [
-        { title: "Preparation Hub", icon: User, href: "/dashboard" },
-        { title: "Question Bank", icon: HelpCircle, href: "/dashboard" },
-      ]
-    }
-  ];
 
   const features = [
     {
@@ -181,176 +123,7 @@ export function HomePage() {
   ];
 
   return (
-    <SidebarProvider>
-      <div className="flex min-h-screen w-full">
-        <Sidebar className="border-r border-gray-200">
-          <SidebarContent className="bg-white">
-            <div className="p-4">
-              <h1 className="text-xl font-bold text-orange-600">
-                InterviewAI
-              </h1>
-            </div>
-
-            {navItems.map((section, idx) => (
-              <SidebarGroup key={idx}>
-                <SidebarGroupLabel className="text-xs uppercase text-gray-600">
-                  {section.title}
-                </SidebarGroupLabel>
-                <SidebarGroupContent>
-                  <SidebarMenu>
-                    {section.items.map((item) => (
-                      <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton asChild tooltip={item.title}>
-                          <a href={item.href} className="flex items-center gap-3 px-3 py-2 text-gray-700 hover:text-orange-600 hover:bg-orange-50">
-                            <item.icon className="h-4 w-4" />
-                            <span>{item.title}</span>
-                          </a>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    ))}
-                  </SidebarMenu>
-                </SidebarGroupContent>
-              </SidebarGroup>
-            ))}
-          </SidebarContent>
-
-          <SidebarFooter className="border-t border-gray-200 bg-white p-4">
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-bold">
-                  JD
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-sm font-medium text-gray-900">John Doe</span>
-                  <span className="text-xs text-gray-500">john@example.com</span>
-                </div>
-              </div>
-            </div>
-          </SidebarFooter>
-        </Sidebar>
-
-        <SidebarInset className="flex-1">
-          <div className="min-h-screen bg-white">
-            {/* Top Navigation Bar */}
-            <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 px-4 md:px-6">
-              <div className="flex h-16 items-center justify-between gap-4">
-                {/* Left side */}
-                <div className="flex items-center gap-2">
-                  {/* Mobile menu trigger */}
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
-                        className="group size-8 md:hidden text-gray-900 hover:bg-orange-50"
-                        variant="ghost"
-                        size="icon"
-                      >
-                        <svg
-                          className="pointer-events-none"
-                          width={16}
-                          height={16}
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M4 12L20 12"
-                            className="origin-center -translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[315deg]"
-                          />
-                          <path
-                            d="M4 12H20"
-                            className="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)] group-aria-expanded:rotate-45"
-                          />
-                          <path
-                            d="M4 12H20"
-                            className="origin-center translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[135deg]"
-                          />
-                        </svg>
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent align="start" className="w-48 p-1 md:hidden bg-white border-gray-200">
-                      <NavigationMenu className="max-w-none *:w-full">
-                        <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
-                          <NavigationMenuItem className="w-full">
-                            <NavigationMenuLink
-                              href="#features"
-                              className="py-1.5 text-gray-700 hover:text-orange-600 hover:bg-orange-50"
-                            >
-                              Features
-                            </NavigationMenuLink>
-                          </NavigationMenuItem>
-                          <NavigationMenuItem className="w-full">
-                            <NavigationMenuLink
-                              href="#testimonials"
-                              className="py-1.5 text-gray-700 hover:text-orange-600 hover:bg-orange-50"
-                            >
-                              Testimonials
-                            </NavigationMenuLink>
-                          </NavigationMenuItem>
-                          <NavigationMenuItem className="w-full">
-                            <NavigationMenuLink
-                              href="#pricing"
-                              className="py-1.5 text-gray-700 hover:text-orange-600 hover:bg-orange-50"
-                            >
-                              Pricing
-                            </NavigationMenuLink>
-                          </NavigationMenuItem>
-                        </NavigationMenuList>
-                      </NavigationMenu>
-                    </PopoverContent>
-                  </Popover>
-                  {/* Main nav */}
-                  <div className="flex items-center gap-6">
-                    <SidebarTrigger className="h-6 w-6 text-gray-900 hidden md:block" />
-                    <h1 className="text-xl font-bold text-orange-600">
-                      InterviewAI
-                    </h1>
-                    {/* Navigation menu */}
-                    <NavigationMenu className="max-md:hidden">
-                      <NavigationMenuList className="gap-2">
-                        <NavigationMenuItem>
-                          <NavigationMenuLink
-                            href="#features"
-                            className="text-gray-700 hover:text-orange-600 py-1.5 font-medium"
-                          >
-                            Features
-                          </NavigationMenuLink>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                          <NavigationMenuLink
-                            href="#testimonials"
-                            className="text-gray-700 hover:text-orange-600 py-1.5 font-medium"
-                          >
-                            Testimonials
-                          </NavigationMenuLink>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                          <NavigationMenuLink
-                            href="#pricing"
-                            className="text-gray-700 hover:text-orange-600 py-1.5 font-medium"
-                          >
-                            Pricing
-                          </NavigationMenuLink>
-                        </NavigationMenuItem>
-                      </NavigationMenuList>
-                    </NavigationMenu>
-                  </div>
-                </div>
-                {/* Right side */}
-                <div className="flex items-center gap-2">
-                  <Button variant="ghost" size="sm" className="text-sm text-gray-700 hover:text-orange-600 hover:bg-orange-50">
-                    Sign In
-                  </Button>
-                  <Button size="sm" className="text-sm bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700">
-                    Get Started
-                  </Button>
-                </div>
-              </div>
-            </header>
-
+    <div className="min-h-screen bg-white">
             {/* Hero Section */}
             <BackgroundGradientAnimation className="py-20 sm:py-32" interactive={true}>
               <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-10">
@@ -592,9 +365,6 @@ export function HomePage() {
                 </div>
               </div>
             </footer>
-          </div>
-        </SidebarInset>
-      </div>
-    </SidebarProvider>
+    </div>
   );
 }
