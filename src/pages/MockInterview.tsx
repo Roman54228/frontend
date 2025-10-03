@@ -1,3 +1,4 @@
+import { BackgroundGradientAnimation } from '@/components/ui/background-gradient-animation';
 import { Button } from '@/components/ui/button';
 import {
     CheckCircle,
@@ -40,7 +41,7 @@ export function MockInterview() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <BackgroundGradientAnimation className="min-h-screen" interactive={true}>
       <div className="mx-auto max-w-4xl px-6 py-8">
         {/* Interview Session */}
         <div className="bg-white rounded-lg border border-gray-200 p-8 shadow-sm mb-8">
@@ -197,6 +198,6 @@ export function MockInterview() {
           </div>
         </div>
       </div>
-    </div>
+    </BackgroundGradientAnimation>
   );
 }

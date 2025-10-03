@@ -1,3 +1,4 @@
+import { BackgroundGradientAnimation } from '@/components/ui/background-gradient-animation';
 import { Button } from '@/components/ui/button';
 import {
     Calendar,
@@ -117,7 +118,7 @@ export function Dashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <BackgroundGradientAnimation className="min-h-screen" interactive={true}>
       <div className="mx-auto max-w-7xl px-6 py-8">
         {/* Stats Grid */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-8">
@@ -222,6 +223,6 @@ export function Dashboard() {
           </div>
         </div>
       </div>
-    </div>
+    </BackgroundGradientAnimation>
   );
 }

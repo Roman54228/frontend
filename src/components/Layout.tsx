@@ -60,7 +60,7 @@ export function Layout({ children }: LayoutProps) {
       title: "Resources",
       items: [
         { title: "Preparation Hub", icon: User, href: "/dashboard" },
-        { title: "Question Bank", icon: HelpCircle, href: "/dashboard" },
+        { title: "Question Bank", icon: HelpCircle, href: "/bank" },
       ]
     }
   ];
